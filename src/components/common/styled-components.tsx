@@ -1,4 +1,4 @@
-import { Grid, Button } from "@mui/material";
+import { Grid, Button, TextField as InputField } from "@mui/material";
 import { styled } from "@mui/system";
 
 export const CenteredGrid = styled(Grid)({
@@ -10,7 +10,6 @@ export const CenteredGrid = styled(Grid)({
   " - moz - transform": "translate(-50%, -50%)",
   "-o - transform": "translate(-50%, -50%)",
   "-ms - transform": "translate(-50%, -50%)",
-  justifyContent: "space-around",
 });
 
 export const TextButton = styled(Button)({
@@ -26,5 +25,15 @@ export const TextButton = styled(Button)({
   },
   "&:focus": {
     backgrounds: "none",
+  },
+});
+
+export const TextField = styled(InputField)({
+  "& .MuiInput-underline:before": {
+    borderBottomColor: "rgba(255, 255, 255, 0.3)",
+  },
+  "& .MuiInput-underline:after": {
+    borderBottomColor: "rgba(255, 255, 255, 0.3)",
+    transition: "none",
   },
 });
