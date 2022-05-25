@@ -12,7 +12,7 @@ const SignUpFlow: React.FunctionComponent = () => {
         New to Andara?
       </Typography>
       <Grid sx={{ flexDirection: 'column' }}>
-        <TextButton disableRipple>
+        <TextButton>
           <Typography>
             Yes, sign me up
           </Typography>

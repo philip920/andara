@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { EthereumAuthProvider, useViewerConnection } from '@self.id/framework'
+import { TextButton } from '../common/styled-components'
 
 declare let window: any;
 
@@ -11,14 +12,14 @@ const ConnectButton: React.FunctionComponent = () => {
   }, [connection])
 
   return connection.status === 'connected' ? (
-    <button
+    <TextButton
       onClick={() => {
         disconnect()
       }}>
       Disconnect ({connection.selfID.id})
-    </button>
+    </TextButton>
   ) : 'ethereum' in window ? (
-    <button
+    <TextButton
       disabled={connection.status === 'connecting'}
       onClick={async () => {
         const accounts = await window.ethereum.request({
@@ -27,7 +28,7 @@ const ConnectButton: React.FunctionComponent = () => {
         await connect(new EthereumAuthProvider(window.ethereum, accounts[0]))
       }}>
       Connect
-    </button>
+    </TextButton>
   ) : (
     <p>
       An injected Ethereum provider such as{' '}
