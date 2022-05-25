@@ -10,17 +10,22 @@ export const defaultTheme = createTheme({
   typography: {
     fontFamily: "Signika Negative",
     fontWeightLight: 300,
-    fontWeightBold: 700,
+    fontWeightBold: 700
   },
   components: {
     MuiPaper: {
       styleOverrides: {
         root: {
           background: "linear-gradient(180deg, #2A5859 0%, #124656 33.85%, #2C3B53 68.23%, #2D2C4B 100%);",
-          height: "100vh",
-          borderRadius: 0,
+          minHeight: "100vh",
+          borderRadius: 0
         }
       }
-    }
+    },
+    MuiButtonBase: {
+      defaultProps: {
+        disableRipple: true
+      },
+    },
   }
 });
