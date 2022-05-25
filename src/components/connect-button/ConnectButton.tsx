@@ -3,8 +3,6 @@ import { EthereumAuthProvider, useViewerConnection } from '@self.id/framework'
 
 declare let window: any;
 
-// A simple button to initiate the connection flow. A Provider must be present at a higher level
-// in the component tree for the `useViewerConnection()` hook to work.
 const ConnectButton: React.FunctionComponent = () => {
   const [connection, connect, disconnect] = useViewerConnection()
 
