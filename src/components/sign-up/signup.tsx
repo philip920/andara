@@ -7,7 +7,6 @@ import StepFour from "./step-four/step-four";
 import StepFive from "./step-five/step-five";
 import StepSix from "./step-six/step-six";
 
-
 const SignUpFlow: React.FunctionComponent = () => {
   const [currentStep, setCurrentStep] = useState(6);
 
