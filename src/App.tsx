@@ -1,5 +1,4 @@
 import React from "react";
-import "./App.css";
 import { Provider } from "@self.id/framework";
 import { ThemeProvider } from "@mui/material/styles";
 import { defaultTheme } from "./themes";
