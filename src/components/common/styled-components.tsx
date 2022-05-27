@@ -1,10 +1,18 @@
-import { Grid, Button, TextField as InputField } from "@mui/material";
+import {
+  Grid,
+  Button,
+  TextField as textField,
+  Autocomplete as autocomplete,
+} from "@mui/material";
 import { styled } from "@mui/system";
 
 export const CenteredGrid = styled(Grid)({
   position: "fixed",
   top: "50%",
   left: "50%",
+  display: "flex",
+  justifyContent: "center",
+  textAlign: "center",
   transform: "translate(-50%, -50%)",
   "- webkit - transform": "translate(-50%, -50%)",
   " - moz - transform": "translate(-50%, -50%)",
@@ -28,7 +36,7 @@ export const TextButton = styled(Button)({
   },
 });
 
-export const TextField = styled(InputField)({
+export const TextField = styled(textField)({
   "& .MuiInput-underline:before": {
     borderBottomColor: "rgba(255, 255, 255, 0.3)",
   },
@@ -36,4 +44,14 @@ export const TextField = styled(InputField)({
     borderBottomColor: "rgba(255, 255, 255, 0.3)",
     transition: "none",
   },
+});
+
+export const Autocomplete = styled(autocomplete)({
+  color: "#fff",
+  "& .MuiAutocomplete-popupIndicator": {
+    color: "#fff",
+  },
+  "& .MuiAutocomplete-clearIndicator": {
+    color: "#fff",
+  }
 });

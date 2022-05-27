@@ -1,13 +1,15 @@
 import React from "react";
-import { Typography, Autocomplete } from "@mui/material";
-import FileUpload from "../../common/file-upload/file-upload";
-import { TextButton, TextField } from "../../common/styled-components";
+import { Typography, Grid } from "@mui/material";
+import {
+  TextField,
+  Autocomplete,
+} from "../../common/styled-components";
 
 const options = ["testoption1", "testoption2", "testoption3", "testoption4"];
 
-const StepThree: React.FunctionComponent = () => {
+const StepFour: React.FunctionComponent = () => {
   return (
-    <>
+    <Grid sx={{ flexDirection: "column" }}>
       <Typography>How are you using crypto?</Typography>
       <Typography>
         Select one or more use cases from our broad collection or add a new one.
@@ -17,10 +19,10 @@ const StepThree: React.FunctionComponent = () => {
       </Typography>
       <Autocomplete
         options={options}
-        renderInput={(params) => <TextField {...params} label="Movie" />}
+        renderInput={(params) => <TextField {...params} variant="standard" />}
       />
-    </>
+    </Grid>
   );
 };
 
-export default StepThree;
+export default StepFour;

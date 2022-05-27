@@ -21,7 +21,6 @@ export const defaultTheme = createTheme({
         root: {
           background:
             "linear-gradient(180deg, #2A5859 0%, #124656 33.85%, #2C3B53 68.23%, #2D2C4B 100%);",
-          minHeight: "100vh",
           borderRadius: 0,
         },
       },
@@ -29,6 +28,14 @@ export const defaultTheme = createTheme({
     MuiButtonBase: {
       defaultProps: {
         disableRipple: true,
+      },
+    },
+    MuiAutocomplete: {
+      styleOverrides: {
+        paper: {
+          background: "transparent",
+          boxShadow: "none",
+        },
       },
     },
   },

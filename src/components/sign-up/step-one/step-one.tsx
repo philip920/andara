@@ -4,9 +4,9 @@ import { TextButton } from "../../common/styled-components";
 
 const StepOne: React.FunctionComponent = () => {
   return (
-    <>
+    <Grid sx={{ flexDirection: "column" }}>
       <Typography>New to Andara?</Typography>
-      <Grid sx={{ flexDirection: "column" }}>
+      <Grid sx={{ flexDirection: "row" }}>
         <TextButton>
           <Typography>Yes, sign me up</Typography>
         </TextButton>
@@ -14,7 +14,7 @@ const StepOne: React.FunctionComponent = () => {
           <Typography>No, use different wallet</Typography>
         </TextButton>
       </Grid>
-    </>
+    </Grid>
   );
 };
 
