@@ -1,12 +1,23 @@
 import React from "react";
 import { Typography, Grid } from "@mui/material";
-import { TextField } from "../../common/styled-components";
+import { TextField, TextButton } from "../../common/styled-components";
 
-const StepTwo: React.FunctionComponent = () => {
+type Props = {
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onNextClick: () => void;
+};
+
+const StepTwo: React.FunctionComponent<Props> = ({ onChange, onNextClick }) => {
   return (
     <Grid sx={{ flexDirection: "column" }}>
       <Typography>What's your user name?</Typography>
-      <TextField color="primary" variant="standard" />
+      <TextField
+        name="username"
+        color="primary"
+        variant="standard"
+        onChange={onChange}
+      />
+      <TextButton onClick={onNextClick}>Next</TextButton>
     </Grid>
   );
 };

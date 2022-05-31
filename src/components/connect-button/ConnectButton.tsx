@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { EthereumAuthProvider, useViewerConnection } from "@self.id/framework";
 import { TextButton } from "../common/styled-components";
+import { Typography } from "@mui/material";
 
 declare let window: any;
 
@@ -32,10 +33,10 @@ const ConnectButton: React.FunctionComponent = () => {
       Connect
     </TextButton>
   ) : (
-    <p>
+    <Typography>
       An injected Ethereum provider such as{" "}
       <a href="https://metamask.io/">MetaMask</a> is needed to authenticate.
-    </p>
+    </Typography>
   );
 };
 

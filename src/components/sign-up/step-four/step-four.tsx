@@ -1,13 +1,23 @@
 import React from "react";
 import { Typography, Grid } from "@mui/material";
+import { User, UseCases } from "../../../types/general";
 import {
   TextField,
   Autocomplete,
+  TextButton,
 } from "../../common/styled-components";
 
-const options = ["testoption1", "testoption2", "testoption3", "testoption4"];
+type Props = {
+  options: string[];
+  onChange: (value: UseCases | unknown) => void;
+  onNextClick: () => void;
+};
 
-const StepFour: React.FunctionComponent = () => {
+const StepFour: React.FunctionComponent<Props> = ({
+  options,
+  onChange,
+  onNextClick,
+}) => {
   return (
     <Grid sx={{ flexDirection: "column" }}>
       <Typography>How are you using crypto?</Typography>
@@ -18,9 +28,12 @@ const StepFour: React.FunctionComponent = () => {
         Once you're signed up you can add items to each use case.
       </Typography>
       <Autocomplete
+        onChange={(event, value) => onChange(value)}
+        multiple
         options={options}
         renderInput={(params) => <TextField {...params} variant="standard" />}
       />
+      <TextButton onClick={onNextClick}>Next</TextButton>
     </Grid>
   );
 };

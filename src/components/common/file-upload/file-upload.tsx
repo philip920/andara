@@ -5,17 +5,19 @@ import Button from "@mui/material/Button";
 import { styled } from "@mui/material/styles";
 
 type Props = {
+  name:string;
   text: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 const Input = styled("input")({
   display: "none",
 });
 
-const FileUpload: React.FunctionComponent<Props> = ({ text }) => {
+const FileUpload: React.FunctionComponent<Props> = ({name, text, onChange }) => {
   return (
     <label htmlFor="contained-button-file">
-      <Input accept="image/*" id="contained-button-file" multiple type="file" />
+      <Input name={name} onChange={onChange} accept="image/*" id="contained-button-file" multiple type="file" />
       <Button
         component="span"
         sx={{

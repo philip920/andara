@@ -2,12 +2,16 @@ import React from "react";
 import { Grid, Typography } from "@mui/material";
 import { TextButton } from "../../common/styled-components";
 
-const StepOne: React.FunctionComponent = () => {
+type Props = {
+  onSignUpClick: () => void;
+};
+
+const StepOne: React.FunctionComponent<Props> = ({ onSignUpClick }) => {
   return (
     <Grid sx={{ flexDirection: "column" }}>
       <Typography>New to Andara?</Typography>
       <Grid sx={{ flexDirection: "row" }}>
-        <TextButton>
+        <TextButton onClick={onSignUpClick}>
           <Typography>Yes, sign me up</Typography>
         </TextButton>
         <TextButton>

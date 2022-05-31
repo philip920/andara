@@ -1,13 +1,14 @@
 export type User = {
   authWalletAdress: string;
   username: string;
-  imageUrl: string;
-  contactList: Contact[];
-  useCases: UseCases;
-  contactInfo: UserContactInfo;
+  imageUrl?: string;
+  contactList?: ContactList;
+  useCases?: UseCases;
+  contactInfo?: UserContactInfo;
 };
 
 export type UseCases = UseCase[];
+export type ContactList = Contact[];
 
 export type UseCase = {
   name: string;
@@ -32,8 +33,8 @@ export type UserContactInfo = {
 
 export type Contact = {
   authWalletAdress: string;
-  username: string;
-  imageUrl: string;
-  useCases: UseCase[];
-  contactInfo: UserContactInfo;
+  username?: string;
+  imageUrl?: string;
+  useCases?: UseCase[];
+  contactInfo?: UserContactInfo;
 };
