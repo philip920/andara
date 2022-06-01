@@ -1,6 +1,6 @@
 import React from "react";
 import { Typography, Grid } from "@mui/material";
-import { User, UseCases } from "../../../types/general";
+import { UseCases } from "../../../types/general";
 import {
   TextField,
   Autocomplete,

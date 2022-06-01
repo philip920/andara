@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Typography, Grid } from "@mui/material";
 import { TextField, TextButton } from "../../common/styled-components";
-import { User, ContactList } from "../../../types/general";
+import { ContactList } from "../../../types/general";
 
 type Props = {
   onChange: (value: ContactList | unknown) => void;

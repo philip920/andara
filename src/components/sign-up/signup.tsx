@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { CenteredGrid } from "../common/styled-components";
-import { User, UseCases } from "../../types/general";
+import { User } from "../../types/general";
 import StepOne from "./step-one/step-one";
 import StepTwo from "./step-two/step-two";
 import StepThree from "./step-three/step-three";
