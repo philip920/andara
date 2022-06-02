@@ -3,8 +3,9 @@ import { Provider } from "@self.id/framework";
 import { ThemeProvider } from "@mui/material/styles";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { defaultTheme } from "./themes";
-import ConnectButton from "./components/connect-button/ConnectButton";
-import SignUpFlow from "./components/sign-up/signup";
+import InitialConnect from "./components/initial-connect/initial-connect";
+
+import SignUp from "./components/sign-up/signup";
 import { Paper, Grid } from "@mui/material/";
 
 const App: React.FunctionComponent = () => {
@@ -15,8 +16,8 @@ const App: React.FunctionComponent = () => {
           <Grid sx={{ height: "100vh" }}>
             <BrowserRouter>
               <Routes>
-                <Route index element={<ConnectButton />} />
-                <Route path="/signup" element={<SignUpFlow />} />
+                <Route index element={<InitialConnect />} />
+                <Route path="/signup" element={<SignUp />} />
               </Routes>
             </BrowserRouter>
           </Grid>

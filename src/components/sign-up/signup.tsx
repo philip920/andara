@@ -10,7 +10,7 @@ import StepSix from "./step-six/step-six";
 
 const options = ["testoption1", "testoption2", "testoption3", "testoption4"];
 
-const SignUpFlow: React.FunctionComponent = () => {
+const SignUp: React.FunctionComponent = () => {
   const [currentStep, setCurrentStep] = useState(1);
 
   const [user, setUser] = useState<User>({
@@ -82,4 +82,4 @@ const SignUpFlow: React.FunctionComponent = () => {
   );
 };
 
-export default SignUpFlow;
+export default SignUp;
