@@ -1,4 +1,6 @@
 export type User = {
+  isAuthenticated: boolean;
+  did: string;
   authWalletAdress: string;
   username: string;
   imageUrl?: string;

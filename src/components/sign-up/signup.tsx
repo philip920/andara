@@ -14,6 +14,8 @@ const SignUp: React.FunctionComponent = () => {
   const [currentStep, setCurrentStep] = useState(1);
 
   const [user, setUser] = useState<User>({
+    isAuthenticated: false,
+    did: "",
     authWalletAdress: "",
     username: "",
   });

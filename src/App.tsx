@@ -4,7 +4,6 @@ import { ThemeProvider } from "@mui/material/styles";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { defaultTheme } from "./themes";
 import InitialConnect from "./components/initial-connect/initial-connect";
-
 import SignUp from "./components/sign-up/signup";
 import { Paper, Grid } from "@mui/material/";
 
