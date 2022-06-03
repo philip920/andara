@@ -7,18 +7,16 @@ import StepThree from "./step-three/step-three";
 import StepFour from "./step-four/step-four";
 import StepFive from "./step-five/step-five";
 import StepSix from "./step-six/step-six";
+import { useStore } from "../../store";
+
 
 const options = ["testoption1", "testoption2", "testoption3", "testoption4"];
 
 const SignUp: React.FunctionComponent = () => {
+  const store = useStore((state) => state);
   const [currentStep, setCurrentStep] = useState(1);
 
-  const [user, setUser] = useState<User>({
-    isAuthenticated: false,
-    did: "",
-    authWalletAdress: "",
-    username: "",
-  });
+  const [user, setUser] = useState<User>(store.user);
 
   const handleNextClick = (): void => {
     setCurrentStep(currentStep + 1);
