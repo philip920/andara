@@ -1,9 +1,8 @@
 import create from "zustand";
-import { UseCases, User } from "./types/general";
+import { User } from "./types/general";
 
-type Store = {
+export type Store = {
   user: User,
-  globalUseCases: UseCases,
   setUser: (user: User) => void
 }
 
@@ -12,9 +11,8 @@ export const useStore = create<Store>((set) => ({
     isAuthenticated: false,
     did: "",
     authWalletAdress: "",
-    username: "",
+    username: "defaultName",
   },
-  globalUseCases: [],
   setUser: (user: User) => 
     set((state) => ({
       ...state,
