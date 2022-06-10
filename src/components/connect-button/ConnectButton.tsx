@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { EthereumAuthProvider, useViewerConnection } from "@self.id/framework";
+import { useNavigate } from "react-router-dom";
 import { TextButton } from "../common/styled-components";
 import { Typography } from "@mui/material";
 import { useStore } from "../../store";
@@ -8,26 +9,29 @@ declare let window: any;
 
 const ConnectButton: React.FunctionComponent = () => {
   const [connection, connect, disconnect] = useViewerConnection();
+  const navigate = useNavigate();
 
   const store = useStore((state) => state);
 
   useEffect(() => {
 
-    const storeUser = async () => {
+    const storeUserAndRedirect = async () => {
       const accounts = await window.ethereum.request({
         method: "eth_requestAccounts",
       });
 
-      store.setUser({
+      await store.setUser({
         ...store.user,
         isAuthenticated: true,
         // @ts-ignore
         did: connection.selfID.id,
         authWalletAdress: accounts[0],
       })
+
+      navigate("/signup");
     }
 
-    connection.status === "connected" && storeUser();
+    connection.status === "connected" && storeUserAndRedirect();    
   }, [connection.status]);
 
   return connection.status === "connected" ? (
