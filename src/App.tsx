@@ -5,6 +5,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { defaultTheme } from "./themes";
 import InitialConnect from "./components/initial-connect/initial-connect";
 import SignUp from "./components/sign-up/signup";
+import Home from "./components/home/home";
+
 import { Paper, Grid } from "@mui/material/";
 
 const App: React.FunctionComponent = () => {
@@ -17,6 +19,7 @@ const App: React.FunctionComponent = () => {
               <Routes>
                 <Route index element={<InitialConnect />} />
                 <Route path="/signup" element={<SignUp />} />
+                <Route path="/home" element={<Home />} />
               </Routes>
             </BrowserRouter>
           </Grid>
