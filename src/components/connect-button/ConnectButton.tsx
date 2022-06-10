@@ -14,7 +14,6 @@ const ConnectButton: React.FunctionComponent = () => {
   const store = useStore((state) => state);
 
   useEffect(() => {
-
     const storeUserAndRedirect = async () => {
       const accounts = await window.ethereum.request({
         method: "eth_requestAccounts",
@@ -26,12 +25,12 @@ const ConnectButton: React.FunctionComponent = () => {
         // @ts-ignore
         did: connection.selfID.id,
         authWalletAdress: accounts[0],
-      })
+      });
 
       navigate("/signup");
-    }
+    };
 
-    connection.status === "connected" && storeUserAndRedirect();    
+    connection.status === "connected" && storeUserAndRedirect();
   }, [connection.status]);
 
   return connection.status === "connected" ? (

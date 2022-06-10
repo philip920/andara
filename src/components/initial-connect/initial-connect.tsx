@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { CenteredGrid } from "../common/styled-components";
 import ConnectButton from "../connect-button/ConnectButton";
 
