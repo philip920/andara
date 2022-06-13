@@ -13,7 +13,7 @@ type Props = {
   onNextClick: () => void;
 };
 
-const StepFour: React.FunctionComponent<Props> = ({
+const UseCasesInput: React.FunctionComponent<Props> = ({
   options,
   onChange,
   onNextClick,
@@ -38,4 +38,4 @@ const StepFour: React.FunctionComponent<Props> = ({
   );
 };
 
-export default StepFour;
+export default UseCasesInput;

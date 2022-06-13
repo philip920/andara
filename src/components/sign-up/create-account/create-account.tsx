@@ -10,7 +10,7 @@ const BorderTextButton = styled(TextButton)({
   padding: "16px",
 });
 
-const StepSix: React.FunctionComponent = () => {
+const CreateAccount: React.FunctionComponent = () => {
   return (
     <Grid sx={{ flexDirection: "column" }}>
       <Typography>Great! That's all we need to set up your account.</Typography>
@@ -23,4 +23,4 @@ const StepSix: React.FunctionComponent = () => {
   );
 };
 
-export default StepSix;
+export default CreateAccount;

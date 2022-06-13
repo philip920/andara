@@ -10,7 +10,7 @@ type Props = {
 
 // TODO: add contact verification before adding it to the list.
 
-const StepFive: React.FunctionComponent<Props> = ({ onChange, onNextClick }) => {
+const ContactInput: React.FunctionComponent<Props> = ({ onChange, onNextClick }) => {
   const [newContactList, setNewContactList] = useState<ContactList>([]);
   const [inputValue, setInputValue] = useState("");
 
@@ -37,4 +37,4 @@ const StepFive: React.FunctionComponent<Props> = ({ onChange, onNextClick }) => 
   );
 };
 
-export default StepFive;
+export default ContactInput;

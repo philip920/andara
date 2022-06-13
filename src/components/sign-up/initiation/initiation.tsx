@@ -6,7 +6,7 @@ type Props = {
   onSignUpClick: () => void;
 };
 
-const StepOne: React.FunctionComponent<Props> = ({ onSignUpClick }) => {
+const Initiation: React.FunctionComponent<Props> = ({ onSignUpClick }) => {
   return (
     <Grid sx={{ flexDirection: "column" }}>
       <Typography>New to Andara?</Typography>
@@ -22,4 +22,4 @@ const StepOne: React.FunctionComponent<Props> = ({ onSignUpClick }) => {
   );
 };
 
-export default StepOne;
+export default Initiation;

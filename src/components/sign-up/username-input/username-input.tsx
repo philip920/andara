@@ -7,7 +7,7 @@ type Props = {
   onNextClick: () => void;
 };
 
-const StepTwo: React.FunctionComponent<Props> = ({ onChange, onNextClick }) => {
+const UserNameInput: React.FunctionComponent<Props> = ({ onChange, onNextClick }) => {
   return (
     <Grid sx={{ flexDirection: "column" }}>
       <Typography>What's your user name?</Typography>
@@ -22,4 +22,4 @@ const StepTwo: React.FunctionComponent<Props> = ({ onChange, onNextClick }) => {
   );
 };
 
-export default StepTwo;
+export default UserNameInput;

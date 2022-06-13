@@ -8,7 +8,7 @@ type Props = {
   onNextClick: () => void;
 };
 
-const StepThree: React.FunctionComponent<Props> = ({
+const ProfilePicInput: React.FunctionComponent<Props> = ({
   onChange,
   onNextClick,
 }) => {
@@ -22,4 +22,4 @@ const StepThree: React.FunctionComponent<Props> = ({
   );
 };
 
-export default StepThree;
+export default ProfilePicInput;

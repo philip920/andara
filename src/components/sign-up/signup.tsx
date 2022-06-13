@@ -1,17 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Integration } from "lit-ceramic-sdk";
 import { useStore } from "../../store";
 import { useNavigate } from "react-router-dom";
-
 import { CenteredGrid } from "../common/styled-components";
 import { User } from "../../types/general";
 import ConnectButton from "../connect-button/ConnectButton";
-import StepOne from "./step-one/step-one";
-import StepTwo from "./step-two/step-two";
-import StepThree from "./step-three/step-three";
-import StepFour from "./step-four/step-four";
-import StepFive from "./step-five/step-five";
-import StepSix from "./step-six/step-six";
+import Initiation from "./initiation/initiation";
+import UserNameInput from "./username-input/username-input";
+import ProfilePicInput from "./profile-pic-input/profile-pic-input";
+import UseCasesInput from "./use-cases-input/use-cases-input";
+import ContactInput from "./contact-input/contact-input";
+import CreateAccount from "./create-account/create-account";
 
 const options = ["testoption1", "testoption2", "testoption3", "testoption4"];
 
@@ -89,33 +88,33 @@ const SignUp: React.FunctionComponent = () => {
       <ConnectButton />
       <CenteredGrid>
         <form onSubmit={handleSubmit}>
-          {currentStep === 1 && <StepOne onSignUpClick={handleNextClick} />}
+          {currentStep === 1 && <Initiation onSignUpClick={handleNextClick} />}
           {currentStep === 2 && (
-            <StepTwo
+            <UserNameInput
               onChange={handleInputChange}
               onNextClick={handleNextClick}
             />
           )}
           {currentStep === 3 && (
-            <StepThree
+            <ProfilePicInput
               onChange={handleInputChange}
               onNextClick={handleNextClick}
             />
           )}
           {currentStep === 4 && (
-            <StepFour
+            <UseCasesInput
               options={options}
               onChange={handleUseCaseChange}
               onNextClick={handleNextClick}
             />
           )}
           {currentStep === 5 && (
-            <StepFive
+            <ContactInput
               onChange={handleContactListChange}
               onNextClick={handleNextClick}
             />
           )}
-          {currentStep === 6 && <StepSix />}
+          {currentStep === 6 && <CreateAccount />}
         </form>
       </CenteredGrid>
     </>
