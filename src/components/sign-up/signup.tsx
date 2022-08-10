@@ -4,7 +4,7 @@ import { useStore } from "../../store";
 import { useNavigate } from "react-router-dom";
 import { CenteredGrid } from "../common/styled-components";
 import { User } from "../../types/general";
-import ConnectButton from "../connect-button/ConnectButton";
+// import ConnectButton from "../connect-button/ConnectButton";
 import Initiation from "./initiation/initiation";
 import UserNameInput from "./username-input/username-input";
 import ProfilePicInput from "./profile-pic-input/profile-pic-input";
@@ -17,17 +17,10 @@ const options = ["testoption1", "testoption2", "testoption3", "testoption4"];
 const SignUp: React.FunctionComponent = () => {
   const store = useStore((state) => state);
 
-  const litCeramicIntegration = new Integration(
-    "https://ceramic-clay.3boxlabs.com",
-    "ethereum"
-  );
-
   const [currentStep, setCurrentStep] = useState(1);
   const [user, setUser] = useState<User>(store.user);
 
   const navigate = useNavigate();
-
-  litCeramicIntegration.startLitClient(window);
 
   const handleNextClick = (): void => {
     setCurrentStep(currentStep + 1);
@@ -55,8 +48,17 @@ const SignUp: React.FunctionComponent = () => {
     });
   };
 
+
+
   const handleSubmit = async () => {
     await store.setUser(user);
+
+    const litCeramicIntegration = new Integration(
+      "https://ceramic-clay.3boxlabs.com",
+      "ethereum"
+    );
+  
+    litCeramicIntegration.startLitClient(window);
 
     const accessControlConditions = [
       {
@@ -67,7 +69,7 @@ const SignUp: React.FunctionComponent = () => {
         parameters: [":userAddress"],
         returnValueTest: {
           comparator: "=",
-          value: user.authWalletAdress,
+          value: user.authWalletAdress
         },
       },
     ];
@@ -85,7 +87,7 @@ const SignUp: React.FunctionComponent = () => {
 
   return (
     <>
-      <ConnectButton />
+      {/* <ConnectButton /> */}
       <CenteredGrid>
         <form onSubmit={handleSubmit}>
           {currentStep === 1 && <Initiation onSignUpClick={handleNextClick} />}
