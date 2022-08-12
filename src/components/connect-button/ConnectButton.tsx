@@ -1,58 +1,64 @@
-import React, { useState } from "react";
-import Web3 from 'web3'
-import { useStore } from "../../store";
-import { TextButton } from "../common/styled-components";
-import { Typography, Link } from "@mui/material";
+import React, { useEffect, useState } from 'react';
+import Web3 from 'web3';
+import { useStore } from '../../store';
+import { TextButton } from '../common/styled-components';
+import { Typography, Link } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 declare let window: any;
 
 const ConnectButton: React.FunctionComponent = () => {
+    const [authState, setAuthState] = useState('disconnected');
+    const store = useStore((state) => state);
+    const authWalletAdress = useStore((state) => state.user.authWalletAdress);
 
-  const [authState, setAuthState] = useState("disconnected")
+    const navigate = useNavigate();
 
-  const store = useStore((state) => state);
+    const connect = async () => {
+        setAuthState('connecting');
 
-  const connect = async () => {
+        const accounts = await window.ethereum.request({
+            method: 'eth_requestAccounts',
+        });
+        window.web3 = new Web3(window.ethereum);
+        const account = window.web3.eth.accounts;
+        const walletAddress = account.givenProvider.selectedAddress;
 
-    setAuthState("connecting")
+        store.setUser({
+            ...store.user,
+            authWalletAdress: walletAddress,
+        });
 
-    const accounts = await window.ethereum.request({ method: "eth_requestAccounts" });
+        setAuthState('connected');
+    };
 
-    window.web3 = new Web3(window.ethereum);
+    useEffect(() => {
+        // Todo:
+        // if user exists log him in with his DID and redirect to /home
+        // if not redirect to /signup
+        console.log('authWalletAdress in useffect:', authWalletAdress);
 
-    const account = window.web3.eth.accounts;
+        if (authWalletAdress.length > 0) {
+            navigate('/signup');
+        }
+    }, [authWalletAdress]);
 
-    const walletAddress = account.givenProvider.selectedAddress;
-
-    console.log("walletAddress:", walletAddress)
-
-    store.setUser({
-      ...store.user,
-      authWalletAdress: walletAddress,
-    });
-
-    setAuthState("connected")
-  }
-
-  return authState === 'connected' ? (
-    <TextButton>Disconnect</TextButton>
-  ) : authState === 'connecting' ? (
-    <TextButton disabled >Connecting...</TextButton>
-  ) : 'ethereum' in window && authState === 'disconnected' ? (
-    <TextButton onClick={connect}>Connect</TextButton>
-  ) : (
-    <Typography>
-      An injected Ethereum provider such as{" "}
-      <Link href="https://metamask.io/">MetaMask</Link> is needed to authenticate.
-    </Typography>
-  );
+    return authState === 'connected' ? (
+        <TextButton>Disconnect</TextButton>
+    ) : authState === 'connecting' ? (
+        <TextButton disabled>Connecting...</TextButton>
+    ) : 'ethereum' in window && authState === 'disconnected' ? (
+        <TextButton onClick={connect}>Connect</TextButton>
+    ) : (
+        <Typography>
+            An injected Ethereum provider such as{' '}
+            <Link href='https://metamask.io/'>MetaMask</Link> is needed to
+            authenticate.
+        </Typography>
+    );
 };
 
 export default ConnectButton;
-
-
-
-
 
 // ConnectButton using self.id/framework
 
@@ -121,10 +127,6 @@ export default ConnectButton;
 
 // export default ConnectButton;
 
-
-
-
-
 // ConnectButton using 3id/connect'
 
 // import React, { useEffect } from "react";
@@ -149,11 +151,8 @@ export default ConnectButton;
 //     console.log("threeID:", threeID)
 //   }, [threeID.connected])
 
-
-
 //   async function authenticateWithEthereum(ethereumProvider: { request: (arg0: { method: string; }) => any; }) {
 //     // Request accounts from the Ethereum provider
-
 
 //     const accounts = await ethereumProvider.request({
 //       method: 'eth_requestAccounts',
@@ -190,8 +189,6 @@ export default ConnectButton;
 //     console.log("did:", did)
 
 //   }
-
-
 
 //   // When using extensions such as MetaMask, an Ethereum provider may be injected as `window.ethereum`
 //   async function tryAuthenticate() {

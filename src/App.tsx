@@ -10,7 +10,6 @@ import { Paper, Grid } from "@mui/material/";
 
 // TODO (short-term):
 // - add protected routes
-// - add localization
 // - add component level tests for sign-up flow
 // - add end-to-end tests for sign-up flow
 // - fix lit-ceramic-integration bug
