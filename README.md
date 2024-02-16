@@ -1,8 +1,4 @@
-Dapp that allows users to see how their peers are using crypto. Categorized by use cases.
 
-My first bigger side-project.
-
-Tech:
 
 [Ceramic Network](https://ceramic.network/)
 
